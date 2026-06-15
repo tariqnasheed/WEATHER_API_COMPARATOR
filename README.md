@@ -287,7 +287,7 @@ Uncomment a sequential version (using `requests.get` in a for‑loop) to see the
 
 ## License
 
-This project is licensed under the **MIT License** – you are free to use, modify, and distribute it.
+This project is licensed under (https://github.com/tariqnasheed) – you are free to use, modify, and distribute it.
 
 ---
 
