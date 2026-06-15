@@ -1,0 +1,73 @@
+# =============================================================================
+# .gitignore for Python async weather API project
+# =============================================================================
+
+# ----------------------------------- Python ----------------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+*.tar.gz
+
+# ----------------------------------- Virtual Environments --------------------
+# uv creates .venv by default
+.venv/
+venv/
+env/
+ENV/
+
+# ----------------------------------- Environment Variables -------------------
+# Contains API keys (never commit)
+.env
+.env.local
+.env.*.local
+
+# ----------------------------------- uv (fast Python package manager) --------
+# Lock file – commit it for reproducibility (optional). Ignored here to keep demo simple.
+uv.lock
+
+# ----------------------------------- Testing ---------------------------------
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+*.cover
+*.log
+
+# ----------------------------------- Logs ------------------------------------
+*.log
+logs/
+debug.log
+
+# ----------------------------------- IDE -------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.suo
+*.user
+
+# ----------------------------------- MyPy (static type checking) -------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ----------------------------------- Jupyter Notebook ------------------------
+.ipynb_checkpoints/
+
+# ----------------------------------- OS generated ----------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.bak

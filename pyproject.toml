@@ -1,0 +1,108 @@
+# =============================================================================
+# pyproject.toml - Project configuration for the Async Weather API Comparator
+# =============================================================================
+# This file defines the project metadata, dependencies, and tool settings.
+# It follows PEP 621 (https://peps.python.org/pep-0621/) and is used by
+# modern Python tools like uv, pip, hatchling, and pytest.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# [project] - Core project metadata and runtime dependencies
+# -----------------------------------------------------------------------------
+[project]
+
+# Name of the package (used when installing with pip/uv)
+name = "weather-api-comparator"
+
+# Version following semantic versioning (major.minor.patch)
+version = "1.0.0"
+
+# Short description shown on PyPI and in package listings
+description = "Async script that calls 4 weather APIs in parallel, prints all temperatures, and shows the cheapest (lowest temperature)"
+
+# List of authors (each with name and optional email)
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }
+]
+
+# License – using SPDX identifier for MIT (text is optional, can be in README)
+license = { text = "MIT" }
+
+# Path to the README file (used by PyPI and some tools)
+readme = "README.md"
+
+# Minimum Python version required (uses features from 3.10+ like | union types)
+requires-python = ">=3.10"
+
+# Keywords for package discovery (PyPI search)
+keywords = ["async", "weather", "api", "pydantic", "httpx"]
+
+# Trove classifiers (standard categories for PyPI)
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+# Runtime dependencies – packages required to run the script
+dependencies = [
+    "httpx>=0.27.0",      # Async HTTP client (supports HTTP/2)
+    "pydantic>=2.0.0",    # Data validation using Python type hints
+    "python-dotenv>=1.0.0", # Loads .env file into environment variables
+]
+
+# -----------------------------------------------------------------------------
+# [project.optional-dependencies] - Extra dependencies for development
+# -----------------------------------------------------------------------------
+[project.optional-dependencies]
+
+# Development dependencies: installed with `uv sync --extra dev` or `pip install -e .[dev]`
+dev = [
+    "pytest>=8.0.0",           # Testing framework
+    "pytest-asyncio>=0.23.0",  # Enables async test support in pytest
+]
+
+# -----------------------------------------------------------------------------
+# [build-system] - Defines the build backend and its requirements
+# -----------------------------------------------------------------------------
+#[build-system]
+
+# Hatchling is the modern, lightweight build backend (used by pip and uv)
+#requires = ["hatchling"]
+
+# The build backend to use – hatchling's main entry point
+#build-backend = "hatchling.build"
+
+# -----------------------------------------------------------------------------
+# [tool.pytest.ini_options] - Configuration for pytest (test runner)
+# -----------------------------------------------------------------------------
+[tool.pytest.ini_options]
+
+# Automatically detect async tests (pytest-asyncio will handle them)
+asyncio_mode = "auto"
+
+# Directory where tests are located (relative to project root)
+testpaths = ["tests"]
+
+# Pattern for test file names
+python_files = "test_*.py"
+
+# Pattern for test class names (optional)
+python_classes = "Test*"
+
+# Pattern for test function names
+python_functions = "test_*"
+
+# Command-line arguments passed to pytest by default
+addopts = "-v --strict-markers"
+
+# -----------------------------------------------------------------------------
+# [tool.pytest_asyncio] - Specific settings for pytest-asyncio plugin
+# -----------------------------------------------------------------------------
+[tool.pytest_asyncio]
+
+# Ensure async tests use the same event loop mode (compatible with older versions)
+default_asyncio_mode = "auto"
